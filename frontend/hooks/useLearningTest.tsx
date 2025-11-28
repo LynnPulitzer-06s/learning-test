@@ -1,5 +1,7 @@
 "use client";
 
+// Maintenance: resubmit hook file to refresh commit history.
+
 import { ethers } from "ethers";
 import {
   RefObject,
@@ -330,10 +332,10 @@ export const useLearningTest = (parameters: {
           return;
         }
 
-        setClearScore({ handle: thisScoreHandle, clear: res[thisScoreHandle] });
+        setClearScore({ handle: thisScoreHandle, clear: res[thisScoreHandle as `0x${string}`] });
         clearScoreRef.current = {
           handle: thisScoreHandle,
-          clear: res[thisScoreHandle],
+          clear: res[thisScoreHandle as `0x${string}`],
         };
 
         setMessage(
@@ -516,7 +518,7 @@ export const useLearningTest = (parameters: {
       sig.startTimestamp,
       sig.durationDays
     );
-    setClearTotal({ handle: totalHandle, clear: res[totalHandle] });
+    setClearTotal({ handle: totalHandle, clear: res[totalHandle as `0x${string}`] });
   }, [instance, ethersSigner, learningTest.address, totalHandle, fhevmDecryptionSignatureStorage]);
 
   // Compute handle for "average" aggregation (contract returns aggregated total; frontend computes public average using studentCount)
@@ -562,7 +564,7 @@ export const useLearningTest = (parameters: {
       sig.startTimestamp,
       sig.durationDays
     );
-    setClearAvg({ handle: avgHandle, clear: res[avgHandle] });
+    setClearAvg({ handle: avgHandle, clear: res[avgHandle as `0x${string}`] });
   }, [instance, ethersSigner, learningTest.address, avgHandle, fhevmDecryptionSignatureStorage]);
 
   // Check if current user is owner
