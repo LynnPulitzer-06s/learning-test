@@ -2,13 +2,13 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint32, externalEuint32} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 import {HonorNFT} from "./HonorNFT.sol";
 
 /// @title Learning Test - Encrypted Exam Platform
 /// @notice A decentralized exam system using Zama FHEVM technology
 /// @dev All scores are encrypted and statistics are computed on encrypted data
-contract LearningTest is SepoliaConfig {
+contract LearningTest is ZamaEthereumConfig {
     // Structure to store student exam data
     struct StudentExam {
         euint32 encryptedScore; // Encrypted score
